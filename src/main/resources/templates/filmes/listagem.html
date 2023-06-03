@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+                xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{template.html}">
 <head>
     <meta charset="UTF-8">
     <title>Listagem de Filmes</title>
 </head>
 <body>
+<div layout:fragment="conteudo">
 <h1>Lista de filmes</h1>
 
 <table>
@@ -14,6 +17,7 @@
             <th>Duração:</th>
             <th>Ano de Lançamento:</th>
             <th>Gênero:</th>
+            <th>Ações</th>
         </tr>
 
     <tbody>
@@ -22,10 +26,16 @@
         <td th:text="${filme.duracaoEmMinutos}"></td>
         <td th:text="${filme.anoLancamento}"></td>
         <td th:text="${filme.genero}"></td>
+        <td>
+            <form action="/filmes" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Excluir">
+            </form>
+        </td>
     </tr>
     </tbody>
     </thead>
 </table>
-
+</div>
 </body>
 </html>

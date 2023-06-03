@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org"
+                   xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout"
+                   layout:decorate="~{template.html}">>
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Filme</title>
 </head>
 <body>
+<div layout:fragment="conteudo">
 <h1>Cadastro de Filme</h1>
 <form method="post" action="/filmes">
     <label for="nome">Nome</label>
@@ -26,6 +29,6 @@
     <input type="submit" value="Cadastras">
 
 </form>
-
+</div>
 </body>
 </html>
