@@ -13,6 +13,9 @@ public class Filme {
     private Integer anoLancamento;
     private String genero;
 
+    public Filme() {
+    }
+
     public Filme(DadosCadastroFilmes dados){
         this.nome = dados.nome();
         this.duracaoEmMinutos = dados.duracao();
@@ -20,7 +23,12 @@ public class Filme {
         this.genero = dados.genero();
     }
 
-    public Filme() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -63,5 +71,12 @@ public class Filme {
                 ", anoLancamento=" + anoLancamento +
                 ", genero='" + genero + '\'' +
                 '}';
+    }
+
+    public void atualizaDados(DadosAlteracaoFilmes dados) {
+        this.nome = dados.nome();
+        this.duracaoEmMinutos = dados.duracao();
+        this.anoLancamento = dados.ano();
+        this.genero = dados.genero();
     }
 }
